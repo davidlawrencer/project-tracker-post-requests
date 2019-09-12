@@ -30,11 +30,11 @@ struct Project: Codable {
         return response.projectWrappers.map { $0.project }
     }
     
-    let dueDate: String
     let name: String
+    let dueDate: String?
     
     enum CodingKeys: String, CodingKey {
-        case dueDate = "Due date"
         case name = "Name"
+        case dueDate = "Due date"
     }
 }
