@@ -14,8 +14,12 @@
 		543AB1182327F67C005B0E32 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 543AB1162327F67C005B0E32 /* LaunchScreen.storyboard */; };
 		543AB1262327F718005B0E32 /* project_tracker_post_requestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543AB1252327F718005B0E32 /* project_tracker_post_requestsTests.swift */; };
 		543AB12E2327F755005B0E32 /* testing-json.json in Resources */ = {isa = PBXBuildFile; fileRef = 543AB12D2327F755005B0E32 /* testing-json.json */; };
-		543AB1302327F803005B0E32 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543AB12F2327F803005B0E32 /* Project.swift */; };
 		543AB1322327F95A005B0E32 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543AB1312327F95A005B0E32 /* Secrets.swift */; };
+		543AB134232A738B005B0E32 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543AB133232A738B005B0E32 /* AppError.swift */; };
+		543AB136232A73B7005B0E32 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543AB135232A73B7005B0E32 /* NetworkHelper.swift */; };
+		543AB138232A7414005B0E32 /* ProjectAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543AB137232A7414005B0E32 /* ProjectAPIClient.swift */; };
+		543AB139232A7463005B0E32 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543AB12F2327F803005B0E32 /* Project.swift */; };
+		543AB13A232A749A005B0E32 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543AB12F2327F803005B0E32 /* Project.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,8 +44,11 @@
 		543AB1252327F718005B0E32 /* project_tracker_post_requestsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = project_tracker_post_requestsTests.swift; sourceTree = "<group>"; };
 		543AB1272327F718005B0E32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		543AB12D2327F755005B0E32 /* testing-json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "testing-json.json"; sourceTree = "<group>"; };
-		543AB12F2327F803005B0E32 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		543AB12F2327F803005B0E32 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Project.swift; path = "project-tracker-post-requestsTests/Project.swift"; sourceTree = SOURCE_ROOT; };
 		543AB1312327F95A005B0E32 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		543AB133232A738B005B0E32 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		543AB135232A73B7005B0E32 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
+		543AB137232A7414005B0E32 /* ProjectAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectAPIClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +92,11 @@
 			children = (
 				543AB10D2327F67A005B0E32 /* AppDelegate.swift */,
 				543AB10F2327F67A005B0E32 /* ViewController.swift */,
+				543AB12F2327F803005B0E32 /* Project.swift */,
 				543AB1312327F95A005B0E32 /* Secrets.swift */,
+				543AB133232A738B005B0E32 /* AppError.swift */,
+				543AB135232A73B7005B0E32 /* NetworkHelper.swift */,
+				543AB137232A7414005B0E32 /* ProjectAPIClient.swift */,
 				543AB1112327F67A005B0E32 /* Main.storyboard */,
 				543AB1142327F67C005B0E32 /* Assets.xcassets */,
 				543AB1162327F67C005B0E32 /* LaunchScreen.storyboard */,
@@ -99,7 +110,6 @@
 			isa = PBXGroup;
 			children = (
 				543AB1252327F718005B0E32 /* project_tracker_post_requestsTests.swift */,
-				543AB12F2327F803005B0E32 /* Project.swift */,
 				543AB1272327F718005B0E32 /* Info.plist */,
 			);
 			path = "project-tracker-post-requestsTests";
@@ -207,8 +217,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				543AB134232A738B005B0E32 /* AppError.swift in Sources */,
 				543AB1102327F67A005B0E32 /* ViewController.swift in Sources */,
+				543AB136232A73B7005B0E32 /* NetworkHelper.swift in Sources */,
+				543AB138232A7414005B0E32 /* ProjectAPIClient.swift in Sources */,
 				543AB1322327F95A005B0E32 /* Secrets.swift in Sources */,
+				543AB139232A7463005B0E32 /* Project.swift in Sources */,
 				543AB10E2327F67A005B0E32 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -218,7 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				543AB1262327F718005B0E32 /* project_tracker_post_requestsTests.swift in Sources */,
-				543AB1302327F803005B0E32 /* Project.swift in Sources */,
+				543AB13A232A749A005B0E32 /* Project.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
