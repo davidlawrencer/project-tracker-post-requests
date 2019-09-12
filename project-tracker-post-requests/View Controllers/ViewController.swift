@@ -27,6 +27,8 @@ class ProjectsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
+    }
+    override func viewWillAppear(_ animated: Bool) {
         loadData()
     }
     
@@ -68,7 +70,7 @@ extension ProjectsViewController: UITableViewDataSource {
         let project = projects[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "projectCell", for: indexPath)
         cell.textLabel?.text = project.name
-        cell.detailTextLabel?.text = project.dueDate?.description
+        cell.detailTextLabel?.text = project.dueDate.description
         return cell
     }
 }

@@ -31,7 +31,7 @@ struct Project: Codable {
     }
     
     let name: String
-    let dueDate: String?
+    let dueDate: String
     
     enum CodingKeys: String, CodingKey {
         case name = "Name"
