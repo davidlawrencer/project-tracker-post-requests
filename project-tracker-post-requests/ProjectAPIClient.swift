@@ -34,6 +34,22 @@ struct ProjectAPIClient {
         }
     }
     
+    func postProject(project: Project, completionHandler: @escaping (Result<Data, AppError>) -> Void) {
+        let projectWrapper = ProjectWrapper(project: project)
+        guard let encodedProjectWrapper = try? JSONEncoder().encode(projectWrapper) else {
+            fatalError()
+        }
+        
+        NetworkHelper.manager.performDataTask(from: airtableURL, httpMethod: .post, data: encodedProjectWrapper) { result in
+            switch result {
+            case .success(let data):
+                completionHandler(.success(data))
+            case .failure(let error):
+                completionHandler(.failure(error))
+            }
+        }
+    }
+    
     // MARK: - Private Properties and Initializers
     
     private var airtableURL: URL {
