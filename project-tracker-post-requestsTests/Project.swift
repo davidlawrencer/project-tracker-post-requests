@@ -29,7 +29,7 @@ struct Project: Codable {
         let response = try JSONDecoder().decode(AirtableResponse.self, from: jsonData)
         return response.projectWrappers.map { $0.project }
     }
-    
+        
     let name: String
     let dueDate: String
     

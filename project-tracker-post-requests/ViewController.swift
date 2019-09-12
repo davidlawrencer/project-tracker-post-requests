@@ -27,6 +27,9 @@ class ProjectsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         loadData()
     }
     
