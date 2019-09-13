@@ -20,8 +20,11 @@ class ClientViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
-        loadData()
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        loadData()
     }
     
     private func configureTableView() {
@@ -61,7 +64,8 @@ extension ClientViewController: UITableViewDataSource {
           let oneClient = clients[indexPath.row]
             
             cell.clientNameLabel.text = oneClient.Name
-            ImageHelper.getImage(stringURL: oneClient.Logo[0].url) { (result) in
+            if let imageUrl = oneClient.Logo?[0].url ?? nil {
+            ImageHelper.getImage(stringURL: imageUrl) { (result) in
                 switch result {
                 case .failure(let error):
                     print(error)
@@ -70,8 +74,8 @@ extension ClientViewController: UITableViewDataSource {
                          cell.clientImageView.image = data
                     }
                    
+                  }
                 }
-                
             }
             
             

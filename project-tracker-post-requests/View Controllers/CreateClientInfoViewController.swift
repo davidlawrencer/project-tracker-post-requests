@@ -13,7 +13,8 @@ class CreateClientInfoViewController: UIViewController {
     @IBOutlet weak var clientSummaryTextField: UITextField!
     
     @IBAction func createClientButtonPressed(_ sender: UIButton) {
-        guard let client = createClientFromFields() else {return} ClientAPIClient.manager.postClient(client: client) { (result) in
+        guard let client = createClientFromFields() else {return}
+        ClientAPIClient.manager.postClient(client: client) { (result) in
             switch result {
             case .success(let success):
                 self.navigationController?.popViewController(animated: true)

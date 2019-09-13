@@ -28,7 +28,7 @@ struct ClientWrapper: Codable {
 
 struct Client: Codable {
     var Name: String
-    var Logo: [LogoWrapper]
+    var Logo: [LogoWrapper]?
     var About: String
     
     static func getClients(from jsonData: Data) throws -> [Client] {
