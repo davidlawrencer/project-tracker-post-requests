@@ -11,7 +11,7 @@ import Foundation
 struct ClientAPIClient {
     static let manager = ClientAPIClient()
     
-    func getClients(completionHandler: @escaping (Result<[Fields],AppError>) -> Void ) {
+    func getClients(completionHandler: @escaping (Result<[Client],AppError>) -> Void ) {
         NetworkHelper.manager.performDataTask(url: airTableClientURL, httpMethod: .get) { (result) in
             
             switch result {
@@ -20,7 +20,7 @@ struct ClientAPIClient {
                 return
             case let .success(data):
                 do {
-                    let clients = try Fields.getClients(from: data)
+                    let clients = try Client.getClients(from: data)
                     completionHandler(.success(clients))
                     
                 }
@@ -31,8 +31,8 @@ struct ClientAPIClient {
         }
     }
     
-    func postClient(client: Fields, completionHandler: @escaping (Result<Data,AppError>) -> () ) {
-        let clientWrapper = ClientWrapper(fields: client)
+    func postClient(client: Client, completionHandler: @escaping (Result<Data,AppError>) -> () ) {
+        let clientWrapper = ClientWrapper(client: client)
         guard let encodedClientWrapper = try? JSONEncoder().encode(clientWrapper) else {fatalError()}
         NetworkHelper.manager.performDataTask(url: airTableClientURL, httpMethod: .post, data: encodedClientWrapper) { (result) in
             switch result {

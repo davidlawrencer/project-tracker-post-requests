@@ -12,7 +12,7 @@ class ClientViewController: UIViewController {
 
     @IBOutlet weak var clientTableView: UITableView!
     
-    var clients = [Fields]() {
+    var clients = [Client]() {
         didSet {
             clientTableView.reloadData()
         }
@@ -29,15 +29,7 @@ class ClientViewController: UIViewController {
         clientTableView.delegate = self
     }
         
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.destination is ShowEpisodeViewController {
-//            guard let indexPath = showTableView.indexPathForSelectedRow,
-//                let episodeVC = segue.destination as? ShowEpisodeViewController else {return}
-//            let oneShow = shows[indexPath.row]
-//            episodeVC.oneShow = oneShow
-//        }
-//    }
-//
+
     private func loadData() {
         ClientAPIClient.manager.getClients { (result) in
             DispatchQueue.main.async {

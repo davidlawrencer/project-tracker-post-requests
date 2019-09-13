@@ -30,18 +30,4 @@ struct ImageHelper {
         
     }
     
-    
-//    func fetchImage(url: URL, completionHandler: @escaping (Result<UIImage,AppError>) -> () ) {
-//        NetworkHelper.manager.getData(from: url) { (result) in
-//            switch result {
-//            case .failure(let error):
-//                completionHandler(.failure(error))
-//            case .success(let data):
-//                guard let image = UIImage(data: data) else {completionHandler(.failure(.noDataReceived))
-//                    return
-//                }
-//                completionHandler(.success(image))
-//            }
-//        }
-//    }
 }

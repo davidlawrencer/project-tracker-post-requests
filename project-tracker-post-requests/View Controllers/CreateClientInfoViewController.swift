@@ -12,6 +12,20 @@ class CreateClientInfoViewController: UIViewController {
     @IBOutlet weak var clientNameTextField: UITextField!
     @IBOutlet weak var clientSummaryTextField: UITextField!
     
+    @IBAction func createClientButtonPressed(_ sender: UIButton) {
+        guard let client = createClientFromFields() else {return} ClientAPIClient.manager.postClient(client: client) { (result) in
+            switch result {
+            case .success(let success):
+                self.navigationController?.popViewController(animated: true)
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,14 +33,10 @@ class CreateClientInfoViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func createClientFromFields() -> Client? {
+        guard let name = clientNameTextField.text else {return nil}
+        guard let about = clientSummaryTextField.text else {return nil}
+        return Client(Name: name, Logo: nil, About: about)
     }
-    */
 
 }

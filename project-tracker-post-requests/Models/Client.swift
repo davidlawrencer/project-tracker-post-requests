@@ -16,21 +16,24 @@ struct ClientResponse: Codable {
 
 struct ClientWrapper: Codable {
     
-    let fields: Fields
+    let client: Client
     
-    
+    private enum CodingKeys: String, CodingKey {
+        case client = "fields"
+    }
     
     
     
 }
 
-struct Fields: Codable {
-    let Name: String
-    let Logo: [LogoWrapper]
+struct Client: Codable {
+    var Name: String
+    var Logo: [LogoWrapper]
+    var About: String
     
-    static func getClients(from jsonData: Data) throws -> [Fields] {
+    static func getClients(from jsonData: Data) throws -> [Client] {
         let response = try JSONDecoder().decode(ClientResponse.self, from: jsonData)
-        return response.records.map {$0.fields}
+        return response.records.map {$0.client}
     }
     
     
